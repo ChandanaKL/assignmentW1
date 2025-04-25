@@ -1,0 +1,102 @@
+Documentation :
+How the Script Works:
+	1. Regex Matching: The script uses a regular expression to match filenames that follow the format <prefix>_<seq_num>.<extension>. It captures the prefix, seq_num, and extension.
+	2. Grouping: It groups files by their prefix and extension so that only files that are part of the same sequence are renamed together.
+	3. Renaming: Within each sequence, the files are sorted by their sequence number, and each file is renamed to a sequential format starting from 01.
+
+How to Run the Script:
+	1. Save the script as rename_sequences.py in your project directory.
+	2. Run the script using Python (make sure Python 3.x is installed).
+	
+    3. The script will prompt you for the directory containing the images. 
+          Enter the path, and it will renumber the files.
+          
+Example :
+
+create few sample Images in  Input directory
+
+ touch weta_17.jpg
+ touch weta_22.jpg
+ touch weta_37.jpg
+ touch weta_80.png
+ touch weta_95.jpg
+ touch weta_01.jpg
+ touch weta_05.png
+ touch awesome_94.png
+ touch awesome_72.png
+ touch awesome_68.jpg
+ touch awesome_56.jpg
+ touch awesome_55.png
+ touch awesome_55.jpg
+ touch awesome_33.png
+ touch weta_33.jpg
+ touch weta_33.png
+ touch awesome_32.png
+ touch weta_32.jpg
+
+-----> Executable : python3 rename_sequences.py 
+ Enter the path to the directory containing the images: /Users/l***ic***a/***p/weta/
+Renaming weta_03.jpg -> weta_01.jpg
+Renaming weta_17.jpg -> weta_02.jpg
+Renaming weta_22.jpg -> weta_03.jpg
+Renaming weta_32.jpg -> weta_04.jpg
+Renaming weta_33.jpg -> weta_05.jpg
+Renaming weta_37.jpg -> weta_06.jpg
+Renaming weta_95.jpg -> weta_07.jpg
+Renaming awesome_11.png -> awesome_01.png
+Renaming awesome_32.png -> awesome_02.png
+Renaming awesome_33.png -> awesome_03.png
+Renaming awesome_55.png -> awesome_04.png
+Renaming awesome_72.png -> awesome_05.png
+Renaming awesome_94.png -> awesome_06.png
+Renaming weta_05.png -> weta_01.png
+Renaming weta_33.png -> weta_02.png
+Renaming weta_80.png -> weta_03.png
+Renaming awesome_11.jpg -> awesome_01.jpg
+Renaming awesome_55.jpg -> awesome_02.jpg
+Renaming awesome_56.jpg -> awesome_03.jpg
+Renaming awesome_68.jpg -> awesome_04.jpg
+Renaming complete.
+
+----> Validating the renamed sequenced images
+ ls -ltr
+
+ awesome_11.jpg
+ awesome_11.png
+ weta_17.jpg
+ weta_22.jpg
+ weta_37.jpg
+ weta_80.png
+ weta_95.jpg
+ weta_01.jpg
+ weta_05.png
+ awesome_94.png
+ awesome_72.png
+ awesome_68.jpg
+ awesome_56.jpg
+ awesome_55.png
+ awesome_55.jpg
+ awesome_33.png
+ weta_33.jpg
+ weta_33.png
+ awesome_32.png
+ weta_32.jpg
+ 
+ * Though the images are renamed , the content still remains the same.
+ For instance :
+ 
+Orginal files :
+--------------
+ cat awesome_11.jpg
+I am awesome_11.jpg
+
+ cat awesome_11.png
+ I am awesome_11.png
+ 
+Renamed files :
+-------------
+cat awesome_01.jpg
+I am awesome_11.jpg
+
+ cat awesome_01.png
+ I am awesome_11.png
